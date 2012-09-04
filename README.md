@@ -1,2 +1,5 @@
-ln -Fis ~/dotfiles/dot.vimrc ~/.vimrc
-ln -Fis ~/dotfiles/dot.gvimrc ~/.gvimrc
+# Usage
+シンボリックリンクを貼る
+
+	ln -Fis ~/dotfiles/dot.vimrc ~/.vimrc
+	ln -Fis ~/dotfiles/dot.gvimrc ~/.gvimrc
