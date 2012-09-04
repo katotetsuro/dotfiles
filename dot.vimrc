@@ -1,3 +1,21 @@
+" -------------------
+"  " Vundle
+"  " -------------------
+set nocompatible
+filetype off
+
+set rtp+=~/dotfiles/vimfiles/vundle.git/
+call vundle#rc()
+
+Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neocomplcache-snippets-complete'
+Bundle 'Shougo/unite.vim'
+Bundle 'fholgado/minibufexpl.vim'
+Bundle 'thinca/vim-quickrun'
+Bundle 'scrooloose/nerdtree.git'
+
+filetype plugin indent on
+
  " URL: http://vim.wikia.com/wiki/Example_vimrc
  " Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
  " Description: A minimal, but feature rich, example .vimrc. If you are a
