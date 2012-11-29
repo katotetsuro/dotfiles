@@ -13,8 +13,9 @@ Bundle 'Shougo/unite.vim'
 Bundle 'fholgado/minibufexpl.vim'
 Bundle 'thinca/vim-quickrun'
 Bundle 'scrooloose/nerdtree.git'
-Bundle 'tomasr/molokai'
-Bundle 'sickill/vim-monokai'
+"Bundle 'tomasr/molokai'
+"Bundle 'sickill/vim-monokai'
+Bundle 'fugalh/desert.vim.git'
 
 filetype plugin indent on
 
@@ -198,3 +199,6 @@ filetype plugin indent on
 
 
  "------------------------------------------------------------
+
+ "プラグイン毎の設定ファイル
+ source ~/dotfiles/dot.vimrc.plugin_settings

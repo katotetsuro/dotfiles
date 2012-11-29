@@ -1,6 +1,6 @@
 set nocompatible "Vi互換をオフ
 set showtabline=2 " タブを常に表示
-set transparency=10 " 透明度
+set transparency=5" 透明度
 set imdisable " IME OFF
 set guioptions-=T " ツールバー非表示
 set antialias " アンチエイリアス
@@ -10,7 +10,7 @@ set number " 行番号表示
 set nobackup " バックアップなし
 set visualbell t_vb= " ビープ音なし
 
-colorscheme monokai " カラースキーマ
+colorscheme desert "カラースキーマ
 set columns=120 " 横幅
 set lines=45 " 行数
 
