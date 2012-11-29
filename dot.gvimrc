@@ -1,7 +1,18 @@
+"OSの判定
+if has('win32')
+  let ostype = "Win"
+elseif has('mac')
+  let ostype = "Mac"
+else
+  let ostype = system("uname")
+endif
+
 set nocompatible "Vi互換をオフ
 
 set showtabline=2 " タブを常に表示
-set transparency=5 " 透明度
+if ostype == 'Mac'
+  set transparency=5 " 透明度
+endif
 set imdisable " IME OFF
 set guioptions-=T " ツールバー非表示
 set antialias " アンチエイリアス
@@ -18,8 +29,12 @@ set lines=45 " 行数
 set wrapscan " 検索をファイルの先頭へループしない
 
 " フォント設定
-set guifontwide=Osaka:h16
-set guifont=Osaka-Mono:h16
+if ostype == 'Mac'
+  set guifontwide=Osaka:h16
+  set guifont=Osaka-Mono:h16
+else
+
+endif
 
 " ノーマルモードではセミコロンをコロンに。
 nnoremap ; :
@@ -101,8 +116,7 @@ let g:nerdstatus = 1
 
 endif
 endfunction
-noremap <c-e> :<c-u>:call ExecuteNERDTree()<cr>
-</cr></c-u></c-e>
+noremap <c-e> :<c-u>:call ExecuteNERDTree()<cr></cr></c-u></c-e>
 
 " VimShell の起動コマンド
 noremap <c-s> :sp<cr><c-w><c-w>:VimShell<cr>
