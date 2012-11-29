@@ -8,7 +8,6 @@ else
 endif
 
 set nocompatible "Vi互換をオフ
-
 set showtabline=2 " タブを常に表示
 if ostype == 'Mac'
   set transparency=5 " 透明度
@@ -22,11 +21,9 @@ set number " 行番号表示
 set nobackup " バックアップなし
 set visualbell t_vb= " ビープ音なし
 
-colorscheme desert " カラースキーマ
+colorscheme desert "カラースキーマ
 set columns=120 " 横幅
 set lines=45 " 行数
-
-set wrapscan " 検索をファイルの先頭へループしない
 
 " フォント設定
 if ostype == 'Mac'
@@ -35,9 +32,6 @@ if ostype == 'Mac'
 else
 
 endif
-
-" ノーマルモードではセミコロンをコロンに。
-nnoremap ; :
 
 " タブの表示
 set list
@@ -82,41 +76,6 @@ set showmatch "対応する括弧を表示
 "set cindent "Cのインデント
 "set foldmethod=syntax
 set grepprg=internal "内蔵grep
-
-"-------------------------------------------
-" NERDTree
-"-------------------------------------------
-let NERDTreeShowHidden = 1
-" 引数なしで実行したとき、NERDTreeを実行する
-let file_name = expand("%:p")
-if has('vim_starting') && file_name == ""
-autocmd VimEnter * call ExecuteNERDTree()
-endif
-
-" カーソルが外れているときは自動的にnerdtreeを隠す
-function! ExecuteNERDTree()
-"b:nerdstatus = 1 : NERDTree 表示中
-"b:nerdstatus = 2 : NERDTree 非表示中
-
-if !exists('g:nerdstatus')
-execute 'NERDTree ./'
-let g:windowWidth = winwidth(winnr())
-let g:nerdtreebuf = bufnr('')
-let g:nerdstatus = 1
-
-elseif g:nerdstatus == 1
-execute 'wincmd t'
-execute 'vertical resize' 0
-execute 'wincmd p'
-let g:nerdstatus = 2
-elseif g:nerdstatus == 2
-execute 'wincmd t'
-execute 'vertical resize' g:windowWidth
-let g:nerdstatus = 1
-
-endif
-endfunction
-noremap <c-e> :<c-u>:call ExecuteNERDTree()<cr></cr></c-u></c-e>
 
 " VimShell の起動コマンド
 noremap <c-s> :sp<cr><c-w><c-w>:VimShell<cr>
