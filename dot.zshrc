@@ -1,4 +1,4 @@
-export PATH=$PATH:~/pear/bin
+export PATH=/usr/local/bin:$PATH:~/pear/bin
 
 export LANG=ja_JP.UTF-8
 HISTFILE=$HOME/.zsh-history
@@ -131,6 +131,8 @@ alias du="du -h"
 alias df="df -h"
 
 alias emacs="open /Applications/Emacs.app"
+
+alias mampphp="/Applications/MAMP/bin/php/php5.4.4/bin/php"
 
 ## 最後のスラッシュを自動的に削除しない
 setopt noautoremoveslash

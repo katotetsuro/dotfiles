@@ -16,6 +16,8 @@ Bundle 'scrooloose/nerdtree.git'
 "Bundle 'tomasr/molokai'
 "Bundle 'sickill/vim-monokai'
 Bundle 'fugalh/desert.vim.git'
+Bundle 'davidhalter/jedi-vim.git'
+Bundle 'ervandew/supertab'
 
 filetype plugin indent on
 
@@ -202,3 +204,6 @@ filetype plugin indent on
 
  "プラグイン毎の設定ファイル
  source ~/dotfiles/dot.vimrc.plugin_settings
+
+ let g:jedi#autocompletion_command = "<M-Space>"
+ let g:SuperTabDefaultCompletionType = "context"
