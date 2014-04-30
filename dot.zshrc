@@ -185,3 +185,39 @@ setopt INTERACTIVE_COMMENTS
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+### rubygemのexecutable path
+export PATH=$PATH:/usr/local/Cellar/ruby/2.0.0-p247/bin
+
+# Android SDK
+export PATH=$PATH:/Users/tkato/workspace/project/disney-moviemaker/adt-bundle-mac-x86_64-20130917/sdk/platform-tools
+# Android NDK
+export PATH=$PATH:/Users/tkato/workspace/project/disney-moviemaker/app/NDK
+
+function ndk-readelf
+{
+  `ndk-which readelf` $@
+}
+
+function ndk-objdump
+{
+  `ndk-which objdump` $@
+}
+
+# cd ../../../みたいなのを簡単にやりたい
+function ..
+{
+  command=""
+  count=1
+  if [ $# > 1 ]
+  then
+    count=$1
+  fi
+  for i in `seq 1 1 $count`
+  do
+    command=$command../
+  done
+  $command
+}
+
+export PYTHONPATH=`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH

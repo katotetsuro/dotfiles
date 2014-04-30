@@ -23,12 +23,12 @@ set visualbell t_vb= " ビープ音なし
 
 colorscheme desert "カラースキーマ
 set columns=120 " 横幅
-set lines=45 " 行数
+set lines=65 " 行数
 
 " フォント設定
 if ostype == 'Mac'
-  set guifontwide=Osaka:h16
-  set guifont=Osaka-Mono:h16
+  set guifontwide=Ricty-Regular:h18
+  set guifont=Ricty-Regular:h18
 else
 
 endif
@@ -91,7 +91,7 @@ let Tlist_Auto_Open = 1
 "-------------------------------------------
 " neocomplcache
 "-------------------------------------------
-"let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_at_startup = 1
 "let g:neocomplcache_max_list = 30
 "let g:neocomplcache_auto_completion_start_length = 2
 "let g:neocomplcache_enable_smart_case = 1
@@ -100,22 +100,21 @@ let Tlist_Auto_Open = 1
 " search with camel case like Eclipse
 ""let g:neocomplcache_enable_camel_case_completion = 1
 ""let g:neocomplcache_enable_underbar_completion = 1
-"imap <C-k> <Plug>(neocomplcache_snippets_expand)
-"smap <C-k> <Plug>(neocomplcache_snippets_expand)
-""inoremap <expr><C-g> neocomplcache#undo_completion()
-""inoremap <expr><C-l> neocomplcache#complete_common_string()
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 " SuperTab like snippets behavior.
-"imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-" <CR>: close popup and save indent.
-"inoremap <expr><CR> neocomplcache#smart_close_popup() . (&indentexpr != '' ? "\<C-f>\<CR>X\<BS>":"\<CR>")
-""inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-" <TAB>: completion.
-""inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-""inoremap <expr><C-h> neocomplcache#smart_close_popup() . "\<C-h>"
-""inoremap <expr><BS> neocomplcache#smart_close_popup() . "\<C-h>"
-""inoremap <expr><C-y> neocomplcache#close_popup()
-""inoremap <expr><C-e> neocomplcache#cancel_popup()
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
 
 " 自動保管の色
 hi Pmenu guibg=#f5f5dc guifg=#000000
@@ -139,3 +138,8 @@ hi PmenuThumb guifg=#0000ff
 "
 " 保存時に空白を削除
 autocmd BufWritePre * :%s/\s\+$//e
+
+
+
+"jedi
+let g:jedi#autocompletion_command = "<C-j>"

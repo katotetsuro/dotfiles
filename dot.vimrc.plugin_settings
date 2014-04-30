@@ -59,3 +59,24 @@ let g:unite_source_file_mru_limit = 200
 " unite-plugins
 cnoremap UH Unite help<Enter>
 cnoremap UO Unite outline<Enter>
+
+
+"------------------------------------
+" neocomplcacheとclang_completeの設定
+"------------------------------------
+" neocomplcache 側の設定
+let g:neocomplcache_force_overwrite_completefunc=1
+
+if !exists("g:neocomplcache_force_omni_patterns")
+    let g:neocomplcache_force_omni_patterns = {}
+endif
+
+" omnifunc が呼び出される場合の正規表現パターンを設定しておく
+let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
+
+
+" clang_complete 側の設定
+" clang_complete の自動呼び出しは必ず切っておいて下さい
+" これを設定しておかなければ補完がおかしくなります
+let g:clang_complete_auto=0
+let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/'

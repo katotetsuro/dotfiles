@@ -9,6 +9,7 @@ call vundle#rc()
 
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
+Bundle 'Shougo/neosnippet-snippets'
 Bundle 'Shougo/unite.vim'
 Bundle 'fholgado/minibufexpl.vim'
 Bundle 'thinca/vim-quickrun'
@@ -17,7 +18,8 @@ Bundle 'scrooloose/nerdtree.git'
 "Bundle 'sickill/vim-monokai'
 Bundle 'fugalh/desert.vim.git'
 Bundle 'davidhalter/jedi-vim.git'
-Bundle 'ervandew/supertab'
+"Bundle 'tyru/current-func-info.vim'
+Bundle 'Rip-Rip/clang_complete'
 
 filetype plugin indent on
 
@@ -199,11 +201,15 @@ filetype plugin indent on
  " <C-L>で検索後の強調表示を解除する
  nnoremap <C-L> :nohl<CR><C-L>
 
-
+" ctagsで候補が複数ある場合は表示する
+ nnoremap <C-]> g<C-]>
  "------------------------------------------------------------
 
  "プラグイン毎の設定ファイル
  source ~/dotfiles/dot.vimrc.plugin_settings
 
- let g:jedi#autocompletion_command = "<M-Space>"
+ let g:jedi#completion_command = "<M-Space>"
+ " quickrunのキーアサインとバッティングしないように
+ let g:jedi#rename_command = "<leader>R"
  let g:SuperTabDefaultCompletionType = "context"
+autocmd FileType python let b:did_ftplugin = 1
