@@ -13,13 +13,17 @@ Bundle 'Shougo/neosnippet-snippets'
 Bundle 'Shougo/unite.vim'
 Bundle 'fholgado/minibufexpl.vim'
 Bundle 'thinca/vim-quickrun'
-Bundle 'scrooloose/nerdtree.git'
-"Bundle 'tomasr/molokai'
-"Bundle 'sickill/vim-monokai'
 Bundle 'fugalh/desert.vim.git'
 Bundle 'davidhalter/jedi-vim.git'
-"Bundle 'tyru/current-func-info.vim'
 Bundle 'Rip-Rip/clang_complete'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'itchyny/lightline.vim'
+Bundle 'vim-scripts/YankRing.vim'
+Bundle 'JuliaLang/julia-vim'
+"Bundle 'godlygeek/tabular'
+"Bundle 'plasticboy/vim-markdown'
+"Bundle 'kannokanno/previm'
+"Bundle 'tyru/open-browser.vim'
 
 filetype plugin indent on
 
@@ -213,3 +217,10 @@ filetype plugin indent on
  let g:jedi#rename_command = "<leader>R"
  let g:SuperTabDefaultCompletionType = "context"
 autocmd FileType python let b:did_ftplugin = 1
+
+" markdown
+au BufRead,BufNewFile *.md set filetype=markdown
+let g:previm_open_cmd = 'open -a Chrome'
+
+" clipboard
+set clipboard=unnamed,autoselect

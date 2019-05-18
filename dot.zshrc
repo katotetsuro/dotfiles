@@ -174,8 +174,6 @@ function wikipedia
   ${TEXT_BROWSER} http://ja.wikipedia.org/wiki/`_space2p20 $@`
 }
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 # rvm
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
@@ -187,7 +185,7 @@ setopt INTERACTIVE_COMMENTS
 export PATH="/usr/local/heroku/bin:$PATH"
 
 ### rubygemのexecutable path
-export PATH=$PATH:/usr/local/Cellar/ruby/2.0.0-p247/bin
+#export PATH=$PATH:/usr/local/Cellar/ruby/2.0.0-p247/bin
 
 # Android SDK
 export PATH=$PATH:/Users/tkato/workspace/project/disney-moviemaker/adt-bundle-mac-x86_64-20130917/sdk/platform-tools
@@ -220,4 +218,30 @@ function ..
   $command
 }
 
-export PYTHONPATH=`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH
+# percolの関数
+
+function exists { which $1 &> /dev/null }
+
+if exists peco; then
+    function peco_select_history() {
+        local tac
+        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
+        BUFFER=$(fc -l -n 1 | eval $tac | peco --query "$LBUFFER")
+        CURSOR=$#BUFFER         # move cursor
+        zle -R -c               # refresh
+    }
+
+    zle -N peco_select_history
+    bindkey '^R' peco_select_history
+fi
+
+# cdしたときにitermのタブ名を今いるディレクトリ名に変える
+function chpwd() { 
+  echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"
+}
+
+#export PYTHONPATH=`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH
+
+export RUST_SRC_PATH="$(rustc --print sysroot)/share/rust/rust_src"
+. /Users/tkato/anaconda/etc/profile.d/conda.sh
+conda activate
