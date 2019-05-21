@@ -1,3 +1,7 @@
+:set encoding=utf-8
+:set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+:set fileformats=unix,dos,mac
+
 " -------------------
 " Vundle
 " -------------------
@@ -13,17 +17,10 @@ Bundle 'Shougo/neosnippet-snippets'
 Bundle 'Shougo/unite.vim'
 Bundle 'fholgado/minibufexpl.vim'
 Bundle 'thinca/vim-quickrun'
-Bundle 'fugalh/desert.vim.git'
 Bundle 'davidhalter/jedi-vim.git'
 Bundle 'Rip-Rip/clang_complete'
-Bundle 'derekwyatt/vim-scala'
 Bundle 'itchyny/lightline.vim'
 Bundle 'vim-scripts/YankRing.vim'
-Bundle 'JuliaLang/julia-vim'
-"Bundle 'godlygeek/tabular'
-"Bundle 'plasticboy/vim-markdown'
-"Bundle 'kannokanno/previm'
-"Bundle 'tyru/open-browser.vim'
 
 filetype plugin indent on
 
