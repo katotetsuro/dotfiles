@@ -1,5 +1,6 @@
 set encoding=utf-8
 set fenc=utf-8
+set fileformats=unix,dos,mac
 
 " -------------------
 " Vundle
